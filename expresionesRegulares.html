@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            //Asersiones
+            //Incluyen limites que indican el inicio y el final de lineas y otros patrones que indican que de alguna manera el reconocimiento es posible.
+
+            const Nombre = "Eugenio González Morales"
+
+            //Obteniendo el ultimo apellido
+            const ultimoApellido = /\w+$/
+            console.log(Nombre.match(ultimoApellido))
+
+            //Obtener la primera letra del primer apellido
+            const primeraLetraPrimerApellido = /(?<=^\w+\s)\w/
+            console.log(Nombre.match(primeraLetraPrimerApellido))
+
+            //Obtener la primera letra
+            const primeraLetra = /^\w/
+            console.log(Nombre.match(primeraLetra))
+
+            //Encontrar Lorem varias veces con "g" de global, ademas de "i" ignorar mayusculas y minusculas con "i"
+            let cadena = "Lorem ipsum dolor sit amet consectetur adipiscing elit, doloremque semper placerat etiam aptent mattis vel imperdiet, feugiat in ante vulputate a congue. Ac aenean vestibulum tincidunt penatibus ullamcorper fringilla rhoncus quisque, integer cum tristique leo ornare eros at dapibus vel, ut potenti sem interdum nunc ligula cursus. Mattis ligula habitasse ut parturient taciti sollicitudin sociosqu scelerisque, congue curabitur dictum urna platea justo primis dapibus, risus sed et tempor ac himenaeos turpis."
+            let regExp = new RegExp("Lorem","ig")
+            let regExp2 = /lorem/ig
+            //Probar que la regular expresion exista dentro de la cadena
+            console.log(regExp.test(cadena))
+            console.log(regExp.exec(cadena))
+
+            console.log(regExp2.test(cadena))
+            console.log(regExp2.exec(cadena))
+
+            //Hay numeros dentro de lorem ipsum?
+            let regExp3 = /\d/ig
+            console.log(regExp3.test(cadena))
+            console.log(regExp3.exec(cadena))
+
+            //Hay numeros dentro de lorem ipsum? - con LISTAS
+            let regExp4 = /[0-9]/ig
+            console.log(regExp4.test(cadena))
+            console.log(regExp4.exec(cadena))
+
+            //Lorem debe estar de 1 a 3 veces
+            let regExp5 = /Lorem{1,3}/ig
+            console.log(regExp5.test(cadena))
+            console.log(regExp5.exec(cadena))
+        </script>
+    </body>
+</html>

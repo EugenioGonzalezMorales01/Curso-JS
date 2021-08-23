@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <script>
+      //Funcion anonima autoejecutable o immediately invoked function expression (IIFE) - SIEMPRE UTILIZA EL ;
+      (function () {
+        console.log("Mi primer IIFE");
+      })();
+      (function (d, w, c) {
+        //Los nombre de las variables que estoy pasandole a la funcion
+        console.log("Mi segunda IIFE");
+        console.log(d);
+        console.log(w);
+        c.log("Este es un console.log");
+      })(document, window, console); //Los tipos de variables que le estoy pasando a la funcion
+
+      //Diferentes versiones de como escribir una funcion anonima
+
+      //Formato CrockFord--> Usa un paréntesis más
+      (function (d, w, c) {
+        console.log("Función Anónima Autoejecutada en Formato CrockFord");
+      })(document, window, console);
+
+      //Versión unaria--> Lleva un símbolo de +
+      +(function (d, w, c) {
+        console.log("Función Anónima Autoejecutada en Formato unaria");
+      })(document, window, console);
+
+      //Versión Facebook--> Lleva una exclamación
+      !(function (d, w, c) {
+        console.log("Función Anónima Autoejecutada en Formato Facebook");
+      })(document, window, console);
+    </script>
+  </body>
+</html>

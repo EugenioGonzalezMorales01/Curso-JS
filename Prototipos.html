@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            /*
+            //Funcion "Animal" mal echa porque desperdicia espacio en memoria
+            function Animal(nombre, genero){
+                //Atributos
+                this.nombre = nombre;
+                this.genero = genero;     
+                //Metodos
+                Animal.saludar = function(){
+                    console.log(`Hola mi nombre es ${this.nombre}`)
+                }
+                Animal.sonar = function(){
+                        console.log(`Hago sonidos porque estoy vivo`)
+                }           
+            }*/
+
+            //Funcion constructora donde asignamos los metodos al prototipo, no a la funcion como tal.
+            function Animal(nombre, genero){
+                //Atributos
+                this.nombre = nombre;
+                this.genero = genero;                
+            }
+
+            //Metodos agregados al prototipo de la funcion contructora
+            //ESTO OPTIMIZA EL ESPACIO EN MEMORIA
+            Animal.prototype.saludar = function(){
+                    console.log(`Hola mi nombre es ${this.nombre}`)
+            }
+            Animal.prototype.sonar = function(){
+                    console.log(`Hago sonidos porque estoy vivo`)
+            }
+            //Instanciacion de la funcion constructora
+            const snoopy = new Animal(`Snoopy`, `Macho`),
+                lolaBunny = new Animal(`Lola Bunny`, `Hembra`)
+            //Impresion de los objetos
+            console.log(snoopy)
+            console.log(lolaBunny)
+            //Impresion de los metodos de los objetos
+            snoopy.sonar()
+            snoopy.saludar()
+            lolaBunny.sonar()
+            lolaBunny.saludar()
+
+        </script>
+    </body>
+</html>

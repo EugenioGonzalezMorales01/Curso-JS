@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            /*Corto circuito OR - Si la variable de la izquierda no es true se le da un valor por defecto*/
+            function saludar(nombre){
+                nombre = nombre || "Usuario"
+                console.log(`Hola ${nombre}`)
+            }
+
+            saludar("Eugenio")
+            saludar()
+
+            console.log("Hola" || "Adios")
+            console.log(19 || "Hola como estas")
+            console.log(false || "Hola como estas 1")
+            console.log(null || "Hola como estas 2")
+            console.log(undefined|| "Hola como estas 3")
+            console.log(""|| "Hola como estas 4")
+
+            /*Corto circuito AND - Si la variable de la izquierda es true se le da un valor por defecto*/
+            console.log("------------")
+            function saludar(nombre){
+                nombre = nombre && "Usuario"
+                console.log(`Hola ${nombre}`)
+            }
+
+            saludar("Eugenio")
+            saludar()
+
+            console.log("Hola" && "Adios")
+            console.log(19 && "Hola como estas")
+            console.log(false && "Hola como estas 1")
+            console.log(null && "Hola como estas 2")
+            console.log(undefined && "Hola como estas 3")
+            console.log("" && "Hola como estas 4")
+
+
+        </script>
+    </body>
+</html>

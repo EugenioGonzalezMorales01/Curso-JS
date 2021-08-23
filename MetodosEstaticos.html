@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            class Animal{
+                constructor(nombre, genero){
+                    this.nombre = nombre;
+                    this.genero = genero;
+                }
+
+                sonar(){
+                    console.log("Hago sonidos por que estoy vivo")
+                }
+
+                saludar(){
+                    console.log(`Hola me llamo ${this.nombre}!`)
+                }
+               
+            }
+            
+            
+            
+
+            class Perro extends Animal{
+                constructor(nombre, genero, tamanio){
+                    super(nombre, genero)
+                    this.tamanio = tamanio
+                    this.raza = null;
+                }
+
+                sonar(){
+                    console.log(`Soy un perro y mi sonido es un ladrido`)
+                }
+
+                ladrar(){
+                    console.log(`Guau! Guau!`)
+                }
+
+                //Un metodo estatico se puede ejecutar sin necesidad de instanciar la clase
+
+                static queEres(){
+                    console.log(`Los perros somos seres llenos de amor para dar a nuestro humano`)
+                }
+
+                //getter - Tienes que anteponerle la palabra get
+                get getRaza(){
+                    return this.raza;
+                }
+
+                //setter
+                set setRaza(raza){
+                    this.raza = raza;
+                }
+            } 
+
+            const mimi = new Animal(`Mimi`, `Hembra`),
+                scooby = new Perro(`Scooby`, `Macho`, `Grande`)
+
+            console.log(mimi)
+            console.log(scooby)
+
+            mimi.saludar()
+            scooby.sonar()
+
+            //Aqui un ejemplo de la ejecucion de un metodo estatico
+            Perro.queEres();
+
+            //Los setters y getters son metodoes especiales que nos permiten establecer y obtener los valores de atributos de nuestra clase
+            console.log(scooby.getRaza)
+
+            scooby.setRaza = `Gran Danes`
+            console.log(scooby.getRaza)
+            
+            
+        </script>
+    </body>
+</html>

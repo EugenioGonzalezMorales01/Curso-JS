@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            //Error desde consola
+            console.error("El nombre de usuario esta mal escrito")
+
+            //Alerta desde consola
+            console.warn("Esto es una alerta")
+
+            //Informacion desde consola
+            console.info("Esto es informacion")
+            
+            //Diferentes maneras de imprimir variables
+            let nombre = "Eugenio",
+                apellido = "Gonzalez",
+                edad = 20
+            
+            console.log(nombre, apellido, edad)
+            console.log (`Hola mi nombre es ${nombre} ${apellido} y tengo ${edad} años`)
+            console.log (`Hola mi nombre es %s %s y tengo %d años`, nombre, apellido, edad)
+
+            console.clear()
+
+            //Ver los atributos y metodos miembro de un objeto mediante la consola
+            console.dir(document)
+
+            //Agrupar elementos impresos en consola
+            console.group("Abreme")
+            console.log("Hola")
+            console.log("¿Cómo")
+            console.log("Estás?")
+            console.groupEnd()
+
+            //Ordenar las propiedades de un objeto como tabla con la consola
+            console.table(Object.entries(console).sort())
+
+            const numeros = [1,2,3,4,5],
+                vocales = ["a","e","i","o","u"]
+            console.table(numeros)
+            console.table(vocales)
+
+            const perro = {
+                nombre: "Rufus",
+                raza: "Burger King",
+                color: "Pinto"
+            }
+            console.table(perro)
+
+            //Imprimir el tiempo que se tarda mi apliacion en realizzar una operacion
+            //El contenido del metodo time funge como identificador
+            console.time("Cuanto tiempo tarda mi codigo")
+            
+            const array = Array(1000000)
+            for (let i = 0; i < array.length; i++){
+                array[i] = i;
+            }
+
+            console.timeEnd("Cuanto tiempo tarda mi codigo")
+            
+            //Cuantas veces se realizo un proceso
+            for (let i = 0; i < 100; i++){
+                console.count("Cuantas veces se ejecuta mi codigo")
+                console.log("Hola");
+            }
+
+            //Hacer una prueba con una condicion de manera rapido con la consola
+            //Si la condicion no es cumplida se lanza el error
+            let x = 3,
+                y = 2,
+                pruebaXY = "Se espera que X siempre sea menor que Y"
+            console.assert(x<y,{x,y,pruebaXY})
+
+            
+        </script>
+    </body>
+</html>

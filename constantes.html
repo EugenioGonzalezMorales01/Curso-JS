@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html5 lang="es">
+    <head>
+        <meta charset="URF-8">
+        <meta content="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fundamentos JS - Constantes</title>
+    </head>
+
+    <body>
+        <h1>Fundamentos JS - Constantes</h1>
+        
+        <script>
+            const PI = 3.1416;
+            //No puedes declarar una constante sin valor
+            //const NUEVE;
+            console.log(PI);
+            let a = "eu";
+            console.log(a)
+
+            const objeto = {
+                nombre: "Eugenio",
+                edad: 20
+            };
+
+            const arreglo = [
+                "blanco",
+                "negro",
+                "azul"
+            ];
+
+            console.log(objeto);
+            console.log(arreglo);
+
+            objeto.apellido = "Gonzalez Morales";
+            arreglo.push("naranja");
+
+            console.log(objeto);
+            console.log(arreglo)
+
+
+            //Cadenas de texto aka Strings
+
+            let nombre = "John";
+            let apellido = "Marston";
+            let saludo = new String("Hola mundo");
+            let lorem = "   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+
+
+            console.log(nombre, apellido, saludo); 
+            console.log(nombre.length,apellido.length,saludo.length);
+            console.log(nombre.toUpperCase(), apellido.toLowerCase());
+            console.log(lorem.includes("Lorem"));
+            console.log(lorem.trim()); //Quita los espacios en blanco al inicio y al final del string
+            console.log(lorem.split(",")) //crea un arreglo separando el string en el separador que le ingreses dentro de las comillas
+
+            //Template Strings
+
+            nombre = "John";
+            apellido = "Marston";
+            //Manera Incorrecta de Hacerlo
+            let Greet = "My name is " + nombre + " " + apellido;
+            console.log(Greet);
+
+            //Manera Correcta con INTERPOLACION DE VARIABLES
+            //Template Strings ``
+
+            let Greet2 = `Hola mi nombre es ${nombre} ${apellido}.`;
+
+            console.log(Greet2);
+
+            let ul = `
+            <ul>
+                <li>Primavera</li>
+                <li>Verano</li>
+                <li>Otonio</li>
+                <li>Invierno</li>
+            </ul>`;
+            console.log(ul)
+
+            let ul2 = "<ul><li>Primavera</li><li>Verano</li><li>Otonio</li><li>Invierno</li></ul>";
+            console.log(ul2)
+
+            a = 2;
+            let b = new Number(3);
+            let c = 7.19;
+            let d = "4.8"
+
+            console.log(a,b);
+            console.log(c.toFixed(1)) //Redonde el numero a x cantidad de numeros decimales
+            console.log(c.toFixed(5));
+            console.log(parseInt(c)); //Mediante este metodo "convertimos" el numero decimal a un numero entero
+            console.log(typeof c, typeof(d));
+            console.log(c + parseFloat(d));
+
+            //BOOLEANS
+
+            let verdadero = true;
+            let falso = false;
+
+            console.log(typeof verdadero, typeof falso);
+
+            //VALORES QUE TIENDEN A VERDADERO O A FALSO
+            console.log(Boolean(0))
+            console.log(Boolean(-7))
+            console.log(Boolean(""))
+            console.log(Boolean("i"))
+
+            //Nan, undefined y null
+
+            let indefinida;
+
+            console.log(indefinida)
+
+            let nula = null;
+
+            console.log(null)
+
+            //NaN significa No a Number
+            let noEsUnNumero = "hola" * 3.7;
+            console.log(noEsUnNumero)
+
+            //Funcion que no resive paramentros ni devuelve valores
+            function FunctionExample(){
+                console.log(1)
+                console.log(2)
+                console.log(3)
+            }
+
+            //Invocacion de Funcion
+            FunctionExample()
+
+            //Funcion que devuelve un valor
+            function FunctionReturn() {
+                let i = 2
+                let j = 3
+                return (i+j)
+                return ("Si")
+            }
+            //Funcion con parametros por defecto personalizados
+            console.log(FunctionReturn())
+
+            function FunctionParams(nombre="|No me pasaste un nombre|",edad = "|No me pasaste una edad|") {
+                console.log(`Hola mi nombre es ${nombre} y tengo ${edad} anios`)                
+            }
+
+            FunctionParams("Eugenio", 20)
+            FunctionParams()
+
+            //Funciones declaradas VS Funciones expresadas
+            functionDeclarada()
+            function functionDeclarada() {
+                console.log("Esto es una funcion declarada, puede invocarse en cualquier parte de nuestro codigo, incluso antes de declararse")                
+            }
+            //Para funciones expresadas es recomendable usar const y no let
+            //Aqui no le ponemos nombre a la funcion, por ello es una funcion anonima
+            const ExpresedFuncion = function (params) {
+                console.log("Esto es una funcion expresada, es decir una funcion que se le ha asignado como valor a una variable, si imvocamos esta funcion antes de su definicion, JS nos dira que no podemos acceder a ella")
+            }
+            ExpresedFuncion()
+
+
+
+
+
+            //CLASE ARREGLOS
+
+            const array = []
+            const array2 = [1, "Hola", ["a", "b", "C", [1,2,3]], true] //Un array puede contener mas arrays o incluso objetos
+            console.log(array)
+            console.log(array2)
+            console.log(array2[2]) //Acceder a un elemento especifico dentro del array
+            console.log(array2[2][2]) //Acceder a un elemento especifico dentro del array que se encuentra en el array original
+            console.log(array2[2][3][0]) //Mismo concepto que el anterior, array dentro de un array, dentro de otro array
+
+            const array3 = Array.of("x","y","z",8,9,10) //NUEVO ESTANDAR DE COMO CREAR UN ARREGLO EN ECMA SCRIPT 6
+            console.log(array3)
+
+            const arrayhundred = Array(100).fill(false) //CREAR UN ARRAY DE 100 POSICIONES LLENO DE "falses" MUY UTIL
+            console.log(arrayhundred)
+            
+            //YA NADIE USA ESTO, PERO ES BUENO SABER QUE EXISTE
+            const unsedArray = new Array();
+            console.log(unsedArray)
+            const unusedArray2 = new Array(10).fill(true)
+            console.log(unusedArray2)
+            ///////////////////////////////////////////////////
+            
+            const colores = ["rojo", "verde", "azul"]
+            colores.push("negro") //Aniade un elemento al final
+            console.log(colores)
+            colores.pop() //Quita un elemento al final
+            console.log(colores)
+            
+            colores.forEach(function(el,i){ //Se ejecuta la funcion por cada elemento del array colores, "el" es de element e "i" es de index, el primero imprime los elementos y el segundo sus indices
+                console.log(`<li id="${i}">${el}</li>`)
+            })
+
+
+
+
+            //DENTRO DE UN OBJETO A LOS VARIABLES SE LES LLAMA "ATRIBUTOS/PROPIEDADES" Y A LAS FUNCIONES "METODOS"    
+            const Eugenio = { //Un Objeto puede contener variables, arrays, objetos, funciones, etc.
+                nombre: "Eugenio",
+                apellidos: "Gonzalez",
+                pasatiempos: ["Study","Play","Sleep"],
+                soltero: false,
+                contacto: {
+                    email: "eugenio.g.m@outlook.es",
+                    facebook: "Eugene",
+                    tel: "2211250450"
+                },
+                saludar: function(){
+                    console.log(`Hola mi nombre es ${this.nombre}`)
+                }
+            }
+            console.log(Eugenio)
+            Eugenio.saludar()
+            console.log(Eugenio.nombre)
+            console.log(Eugenio["nombre"])
+            console.log(Eugenio.pasatiempos[0])
+            console.log(Eugenio.contacto.email)
+
+            console.log(Object.keys(Eugenio)) //devuelve un array con los nombres de las propiedades de un objeto
+            console.log(Object.values(Eugenio)) //Devuelve un array con los valores de las propiedades de un objeto
+            console.log(Eugenio.hasOwnProperty("soltero"))// Permite saber si el texto ingresado es el nombre de una propiedad dentro del objeto
+
+
+            //OPERADORES
+
+            //Aritmeticos + - * / % ()
+            let A1 = 5 + (1+2) - 10 * 1
+            let modulo = 5%2
+            console.log(A1)
+            console.log(modulo)
+
+            //Relacionales > < >= <= == === != !==
+            console.log(8 >= 7)
+
+            /* IGUALES
+                = : Asignacion
+                == : Comparacion de valores
+                === : Comparacion de tipo de dato y de valor
+            */
+            console.log("7" == 7)
+            console.log(0 == false)
+
+            //Incremento o decremento
+
+            let incremento = 3
+            incremento += 3
+            incremento /= 3
+            incremento *= 3
+            incremento++
+            incremento--
+            ++incremento
+            --incremento
+            //En los console.log con los incrementales unitarios, primero imprimira y luego aumentara o al contrario segun sea el como lo hayas escrito
+            console.log(incremento)
+
+            //Operadores logicos ! || &&
+
+            console.log(!true)
+            console.log((9 === 9) || ("9" === 9))
+            console.log((9 === 9) && ("9" === 9))
+
+            //ESTRUCTURA CONDICIONAL O DE CONTROL do dowhile for forin
+
+            //for in nos permite recorrer las propiedades de un objeto
+            
+            const numeros = [1,2,3,4,5,6,7,8,9,10]
+            let cadena = "Hola Mundo"
+            const Rufus = {
+                nombre: "Rufus",
+                apellido: "GM",
+                edad: 5
+            }
+
+            for (const propiedad in Rufus){
+                console.log(`Key: ${propiedad}, Value: ${Rufus[propiedad]}`) //Hacerlo con punto no se puede, usa la notacion de los corchetes cuadrados
+            }
+
+            for (const iterator of numeros){
+                console.log(iterator)
+            }
+
+            for (const iterator of cadena) {
+                console.log(iterator)
+            }
+
+            //Manejo de errores////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            try {
+                console.log("En el try se agrega el codigo a evaluar")
+                noExiste;
+                console.log("Segundo mensaje del try")
+            } catch (error) {
+                console.log(`catch, captura cualquie error surgido o lanzado en el try. En este caso el error fue ${error}`)
+            }
+            finally{
+                console.log("El bloque finally se ejecutara siempre al final de un bloque try-catch")
+            }
+            //CREANDO MI ERROR PERSONALIZADO
+            try {
+                let numero = "y"
+                if (isNaN(numero)){
+                    throw new Error(`${numero} no es un numero`)
+                }
+                console.log(numero*numero)
+            } catch (error) {
+                console.log(`Se produjo el siguiente error: ${error}`)                    
+            }
+
+            //BREAK AND CONTINUE
+
+            for (let i=0; i<numeros.length; i++){
+                if(i===5){
+                    break; //ROMPE EL CICLO
+                }
+                console.log(numeros[i])
+            }
+            console.log("\n")
+            for (let i=0; i<numeros.length; i++){
+                if(i===5){
+                    continue; //SE SALTA ESA ITERACION DEL CICLO
+                }
+                console.log(numeros[i])
+            }
+
+            
+            
+            
+        </script>
+    </body>
+</html5>

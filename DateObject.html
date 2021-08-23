@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head> </head>
+	<body>
+		<script>
+			console.log(Date());
+
+			let fecha = new Date();
+
+			//Dia del mes
+			console.log(fecha.getDate());
+			//Dia de la semana el 0 es domingo
+			console.log(fecha.getDay());
+			//Mes del año el 0 es enero
+			console.log(fecha.getMonth());
+			//Año
+			console.log(fecha.getFullYear());
+			//Hora, minutos y segundos
+			console.log("Hora: " + fecha.getHours());
+			console.log(fecha.getMinutes());
+			console.log(fecha.getSeconds());
+			//milisegundos
+			console.log(fecha.getMilliseconds());
+			//Obtener fecha completa en un string
+			console.log(fecha.toString());
+			//Obtener la fecha en un string
+			console.log(fecha.toDateString());
+			//Obtener fecha completa sin el uso horario
+			console.log(fecha.toLocaleString());
+			//Obtener la fecha sin el uso horario
+			console.log(fecha.toLocaleDateString());
+			//Obtener la hora sin el uso horario
+			console.log(fecha.toLocaleTimeString());
+			//Obtener la zona horario (mexico esta a menos seis horas de Londres, lo cual es 6x60 = 360 minutos)
+			console.log(fecha.getTimezoneOffset());
+			//UTC hace referencia a la zona horaria 0 (meridiano de greenwich), la cual es Londres, recuerda que Date es el dia del mes
+			console.log(fecha.getUTCDate());
+			//Cuantos milisegundos han pasado desde 1/1/1970 - El famoso TIMESTAMP - Usalo con la clase, no con el objeto
+			console.log(Date.now());
+
+			//Almacenar una fecha determinada en una variable
+			let micumple = new Date(2000, 8, 1);
+			console.log(micumple);
+		</script>
+	</body>
+</html>

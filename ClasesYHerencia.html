@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            class Animal{
+                //El constructor de una clase es un metod especial que se ejecuta al instanciar la propia clase
+                constructor(nombre, genero){
+                    this.nombre = nombre;
+                    this.genero = genero;
+                }
+
+                //Metodos
+
+                sonar(){
+                    console.log("Hago sonidos por que estoy vivo")
+                }
+
+                saludar(){
+                    console.log(`Hola me llamo ${this.nombre}!`)
+                }
+               
+            }
+            
+            
+            
+
+            class Perro extends Animal{
+                constructor(nombre, genero, tamanio){
+                    //El metodo super manda a llamar al constructor de la clase padre
+                    super(nombre, genero)
+                    //Al tamaño ser una propiedad exclusiva de los perros, se escribira de la siguiente forma
+                    this.tamanio = tamanio
+
+                }
+
+                sonar(){
+                    console.log(`Soy un perro y mi sonido es un ladrido`)
+                }
+
+                ladrar(){
+                    console.log(`Guau! Guau!`)
+                }
+            } 
+
+            const mimi = new Animal(`Mimi`, `Hembra`),
+                scooby = new Perro(`Scooby`, `Macho`, `Grande`)
+
+            console.log(mimi)
+            console.log(scooby)
+
+            mimi.saludar()
+            scooby.sonar()
+        </script>
+    </body>
+</html>

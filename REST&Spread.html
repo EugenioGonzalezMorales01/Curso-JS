@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<script>
+			//El parametro REST nos permite manejar un numero no definido de variables como un array
+			//Nos da la capacidad de tener parametro infinitos
+			function sumar(a, b, ...c) {
+				let resultado = a + b;
+				c.forEach((n) => {
+					resultado += n;
+				});
+				return resultado;
+			}
+
+			//Operador de propagacion
+			const arr1 = [1, 2, 3, 4, 5],
+				arr2 = [6, 7, 8, 9, 0];
+
+			console.log(arr1, arr2);
+			//Creamos un array que contiene 2 arrays
+			let arr3 = [arr1, arr2];
+			console.log(arr3);
+			//Creamos un arreglo que une dos arreglos
+			arr3 = [...arr1, ...arr2];
+			console.log(arr3);
+			console.info(sumar(1, 2, 3, 4, 5));
+		</script>
+	</body>
+</html>
